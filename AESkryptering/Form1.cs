@@ -7,7 +7,6 @@ namespace AESkryptering
             InitializeComponent();
         }
 
-        string text = "";
         string password = "";
         string encrypted = "";
         string decrypted = "";
@@ -19,7 +18,7 @@ namespace AESkryptering
 
         private void Text_TextChanged(object sender, EventArgs e)
         {
-            text = Text.Text;
+
         }
 
         private void Password_TextChanged(object sender, EventArgs e)
@@ -37,5 +36,7 @@ namespace AESkryptering
             decrypted = Encrypt.DecryptString(encrypted, password);
             textBox2.Text = decrypted;
         }
+
+        
     }
 }

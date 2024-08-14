@@ -34,66 +34,85 @@
             Decrypt = new Button();
             textBox2 = new TextBox();
             Password = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // Text
             // 
-            Text.Location = new Point(27, 51);
+            Text.Location = new Point(24, 69);
+            Text.Margin = new Padding(3, 2, 3, 2);
+            Text.Multiline = true;
             Text.Name = "Text";
             Text.PlaceholderText = "Text";
-            Text.Size = new Size(332, 27);
+            Text.Size = new Size(291, 57);
             Text.TabIndex = 0;
             Text.TextChanged += Text_TextChanged;
             // 
             // button1
             // 
             button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.Location = new Point(27, 117);
+            button1.Location = new Point(321, 125);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(99, 37);
-            button1.TabIndex = 1;
+            button1.Size = new Size(87, 28);
+            button1.TabIndex = 2;
             button1.Text = "Encrypt";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // Decrypt
             // 
-            Decrypt.Location = new Point(27, 227);
+            Decrypt.Location = new Point(24, 170);
+            Decrypt.Margin = new Padding(3, 2, 3, 2);
             Decrypt.Name = "Decrypt";
-            Decrypt.Size = new Size(96, 38);
-            Decrypt.TabIndex = 2;
+            Decrypt.Size = new Size(84, 28);
+            Decrypt.TabIndex = 3;
             Decrypt.Text = "Decrypt";
             Decrypt.UseVisualStyleBackColor = true;
             Decrypt.Click += Decrypt_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(27, 271);
+            textBox2.Location = new Point(24, 203);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(447, 147);
-            textBox2.TabIndex = 3;
+            textBox2.Size = new Size(392, 111);
+            textBox2.TabIndex = 4;
             textBox2.TextChanged += Text_TextChanged;
             // 
             // Password
             // 
-            Password.Location = new Point(27, 84);
+            Password.Location = new Point(24, 130);
+            Password.Margin = new Padding(3, 2, 3, 2);
             Password.Name = "Password";
             Password.PlaceholderText = "Password";
-            Password.Size = new Size(332, 27);
-            Password.TabIndex = 4;
+            Password.Size = new Size(291, 23);
+            Password.TabIndex = 1;
             Password.TextChanged += Password_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Rockwell", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(24, 26);
+            label1.Name = "label1";
+            label1.Size = new Size(228, 23);
+            label1.TabIndex = 5;
+            label1.Text = "EncryptionMaster 3000";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
+            Controls.Add(label1);
             Controls.Add(Password);
             Controls.Add(textBox2);
             Controls.Add(Decrypt);
             Controls.Add(button1);
             Controls.Add(Text);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -107,5 +126,6 @@
         private Button Decrypt;
         private TextBox textBox2;
         private TextBox Password;
+        private Label label1;
     }
 }

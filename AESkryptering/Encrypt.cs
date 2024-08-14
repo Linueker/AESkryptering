@@ -65,28 +65,35 @@ namespace AESkryptering
 
         public static string DecryptString(string encrypted, string password)
         {
-            // Convert the encrypted string to a byte array
-            byte[] encryptedBytes = Convert.FromBase64String(encrypted);
-
-            byte[] salt = new byte[8];
-            Array.Copy(encryptedBytes, 0, salt, 0, salt.Length);
-
-            // Derive the password using the PBKDF2 algorithm
-            Rfc2898DeriveBytes passwordBytes = new Rfc2898DeriveBytes(password, salt, 1000, HashAlgorithmName.SHA256);
-
-            // Use the password to decrypt the encrypted string
-            Aes encryptor = Aes.Create();
-            encryptor.Key = passwordBytes.GetBytes(32);
-            encryptor.IV = passwordBytes.GetBytes(16);
-            
-            using (MemoryStream ms = new MemoryStream())
+            try
             {
-                using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                // Convert the encrypted string to a byte array
+                byte[] encryptedBytes = Convert.FromBase64String(encrypted);
+
+                byte[] salt = new byte[8];
+                Array.Copy(encryptedBytes, 0, salt, 0, salt.Length);
+
+                // Derive the password using the PBKDF2 algorithm
+                Rfc2898DeriveBytes passwordBytes = new Rfc2898DeriveBytes(password, salt, 1000, HashAlgorithmName.SHA256);
+
+                // Use the password to decrypt the encrypted string
+                Aes encryptor = Aes.Create();
+                encryptor.Key = passwordBytes.GetBytes(32);
+                encryptor.IV = passwordBytes.GetBytes(16);
+
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    cs.Write(encryptedBytes, salt.Length, encryptedBytes.Length - salt.Length);
-                    cs.FlushFinalBlock();
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(encryptedBytes, salt.Length, encryptedBytes.Length - salt.Length);
+                        cs.FlushFinalBlock();
+                    }
+                    return $"Decrypted message: {System.Text.Encoding.UTF8.GetString(ms.ToArray())}";
                 }
-                return System.Text.Encoding.UTF8.GetString(ms.ToArray());
+            }
+            catch
+            {
+                return "Wrong password!";
             }
         }
     }
