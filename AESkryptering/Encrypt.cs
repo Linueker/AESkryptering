@@ -31,6 +31,7 @@ namespace AESkryptering
 
         
 
+
         public static string EncryptString(string plaintext, string password)
         {
             // Convert the plaintext string to a byte array

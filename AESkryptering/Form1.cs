@@ -13,7 +13,8 @@ namespace AESkryptering
         private void button1_Click(object sender, EventArgs e)
         {
             encrypted = Encrypt.EncryptString(Text.Text.ToString(), Password.Text.ToString());
-            textBox2.Text = encrypted;
+            Text.Text = encrypted;
+            Password.Text = "";
         }
 
         private void Text_TextChanged(object sender, EventArgs e)
@@ -33,10 +34,10 @@ namespace AESkryptering
 
         private void Decrypt_Click(object sender, EventArgs e)
         {
-            decrypted = Encrypt.DecryptString(encrypted, password);
+            decrypted = Encrypt.DecryptString(textBox2.Text, passwordCheck.Text);
             textBox2.Text = decrypted;
-        }
 
+        }
         
     }
 }

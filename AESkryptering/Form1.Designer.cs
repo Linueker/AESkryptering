@@ -35,6 +35,8 @@
             textBox2 = new TextBox();
             Password = new TextBox();
             label1 = new Label();
+            passwordCheck = new TextBox();
+            enterPasswordLable = new Label();
             SuspendLayout();
             // 
             // Text
@@ -62,7 +64,7 @@
             // 
             // Decrypt
             // 
-            Decrypt.Location = new Point(24, 170);
+            Decrypt.Location = new Point(332, 261);
             Decrypt.Margin = new Padding(3, 2, 3, 2);
             Decrypt.Name = "Decrypt";
             Decrypt.Size = new Size(84, 28);
@@ -73,10 +75,11 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(24, 203);
+            textBox2.Location = new Point(24, 294);
             textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "Paste message to encrypt";
             textBox2.Size = new Size(392, 111);
             textBox2.TabIndex = 4;
             textBox2.TextChanged += Text_TextChanged;
@@ -86,7 +89,7 @@
             Password.Location = new Point(24, 130);
             Password.Margin = new Padding(3, 2, 3, 2);
             Password.Name = "Password";
-            Password.PlaceholderText = "Password";
+            Password.PlaceholderText = "Select password";
             Password.Size = new Size(291, 23);
             Password.TabIndex = 1;
             Password.TextChanged += Password_TextChanged;
@@ -101,11 +104,30 @@
             label1.TabIndex = 5;
             label1.Text = "EncryptionMaster 3000";
             // 
+            // passwordCheck
+            // 
+            passwordCheck.Location = new Point(136, 266);
+            passwordCheck.Name = "passwordCheck";
+            passwordCheck.Size = new Size(113, 23);
+            passwordCheck.TabIndex = 6;
+            // 
+            // enterPasswordLable
+            // 
+            enterPasswordLable.AutoSize = true;
+            enterPasswordLable.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            enterPasswordLable.Location = new Point(24, 269);
+            enterPasswordLable.Name = "enterPasswordLable";
+            enterPasswordLable.Size = new Size(106, 17);
+            enterPasswordLable.TabIndex = 7;
+            enterPasswordLable.Text = "Enter Password:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(700, 436);
+            Controls.Add(enterPasswordLable);
+            Controls.Add(passwordCheck);
             Controls.Add(label1);
             Controls.Add(Password);
             Controls.Add(textBox2);
@@ -127,5 +149,7 @@
         private TextBox textBox2;
         private TextBox Password;
         private Label label1;
+        private TextBox passwordCheck;
+        private Label enterPasswordLable;
     }
 }
