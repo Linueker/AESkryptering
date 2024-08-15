@@ -14,6 +14,14 @@ namespace AESkryptering
         {
             encrypted = Encrypt.EncryptString(Text.Text.ToString(), Password.Text.ToString());
             Text.Text = encrypted;
+            using (MyDBContext dbContext = new MyDBContext())
+            {
+                EncryptedMessage message = new EncryptedMessage();
+                message.Message = encrypted;
+                dbContext.EncryptedMessages.Add(message);
+                dbContext.SaveChanges();
+            }
+
             Password.Text = "";
         }
 

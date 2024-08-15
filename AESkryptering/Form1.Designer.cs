@@ -79,7 +79,7 @@
             textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Paste message to encrypt";
+            textBox2.PlaceholderText = "Paste message to decrypt";
             textBox2.Size = new Size(392, 111);
             textBox2.TabIndex = 4;
             textBox2.TextChanged += Text_TextChanged;

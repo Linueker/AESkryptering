@@ -94,7 +94,7 @@ namespace AESkryptering
             }
             catch
             {
-                return "Wrong password!";
+                return "Wrong password and/or cipher text!";
             }
         }
     }
