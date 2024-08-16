@@ -24,22 +24,6 @@ namespace AESkryptering
             }
             Password.Text = "";
         }
-
-        private void Text_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Decrypt_Click(object sender, EventArgs e)
         {
             textBox2.Text = Encrypt.DecryptString(textBox2.Text, passwordCheck.Text);

@@ -50,7 +50,6 @@
             Text.PlaceholderText = "Text";
             Text.Size = new Size(291, 118);
             Text.TabIndex = 0;
-            Text.TextChanged += Text_TextChanged;
             // 
             // button1
             // 
@@ -84,7 +83,6 @@
             textBox2.PlaceholderText = "Paste message to decrypt";
             textBox2.Size = new Size(392, 111);
             textBox2.TabIndex = 4;
-            textBox2.TextChanged += Text_TextChanged;
             // 
             // Password
             // 
@@ -94,7 +92,6 @@
             Password.PlaceholderText = "Select password";
             Password.Size = new Size(291, 23);
             Password.TabIndex = 1;
-            Password.TextChanged += Password_TextChanged;
             // 
             // label1
             // 
