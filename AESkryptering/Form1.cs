@@ -55,11 +55,6 @@ namespace AESkryptering
 
         }
 
-        private void messageListTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void getMessagesButton_Click(object sender, EventArgs e)
         {
             List<MessageModel> messageModels = SqliteDataAccess.LoadMessages();
@@ -73,7 +68,12 @@ namespace AESkryptering
 
         private void messageListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            var message = messageListBox.SelectedItem;
+
+            if (message != null)
+            {
+                textBox2.Text = message.ToString();
+            }
         }
     }
 }
