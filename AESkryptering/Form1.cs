@@ -12,9 +12,25 @@ namespace AESkryptering
         string decrypted = "";
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageModel m = new MessageModel();
+
             encrypted = Encrypt.EncryptString(Text.Text.ToString(), Password.Text.ToString());
+
+            m.Message = encrypted;
+            m.Password = Password.Text;
+
+            SqliteDataAccess.SaveMessages(m);
+
             Text.Text = encrypted;
             Password.Text = "";
+
+            List<MessageModel> messageModels = SqliteDataAccess.LoadMessages();
+            messageListBox.Items.Clear();
+
+            foreach (var message in messageModels)
+            {
+                messageListBox.Items.Add(message.Message);
+            }
         }
 
         private void Text_TextChanged(object sender, EventArgs e)
@@ -38,6 +54,26 @@ namespace AESkryptering
             textBox2.Text = decrypted;
 
         }
-        
+
+        private void getMessagesButton_Click(object sender, EventArgs e)
+        {
+            List<MessageModel> messageModels = SqliteDataAccess.LoadMessages();
+            messageListBox.Items.Clear();
+
+            foreach (var message in messageModels)
+            {
+                messageListBox.Items.Add(message.Message);
+            }
+        }
+
+        private void messageListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var message = messageListBox.SelectedItem;
+
+            if (message != null)
+            {
+                textBox2.Text = message.ToString();
+            }
+        }
     }
 }

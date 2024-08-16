@@ -37,6 +37,8 @@
             label1 = new Label();
             passwordCheck = new TextBox();
             enterPasswordLable = new Label();
+            getMessagesButton = new Button();
+            messageListBox = new ListBox();
             SuspendLayout();
             // 
             // Text
@@ -121,11 +123,33 @@
             enterPasswordLable.TabIndex = 7;
             enterPasswordLable.Text = "Enter Password:";
             // 
+            // getMessagesButton
+            // 
+            getMessagesButton.Location = new Point(445, 353);
+            getMessagesButton.Name = "getMessagesButton";
+            getMessagesButton.Size = new Size(103, 23);
+            getMessagesButton.TabIndex = 9;
+            getMessagesButton.Text = "Get Messages";
+            getMessagesButton.UseVisualStyleBackColor = true;
+            getMessagesButton.Click += getMessagesButton_Click;
+            // 
+            // messageListBox
+            // 
+            messageListBox.FormattingEnabled = true;
+            messageListBox.ItemHeight = 15;
+            messageListBox.Location = new Point(445, 142);
+            messageListBox.Name = "messageListBox";
+            messageListBox.Size = new Size(161, 184);
+            messageListBox.TabIndex = 10;
+            messageListBox.SelectedIndexChanged += messageListBox_SelectedIndexChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 436);
+            Controls.Add(messageListBox);
+            Controls.Add(getMessagesButton);
             Controls.Add(enterPasswordLable);
             Controls.Add(passwordCheck);
             Controls.Add(label1);
@@ -151,5 +175,7 @@
         private Label label1;
         private TextBox passwordCheck;
         private Label enterPasswordLable;
+        private Button getMessagesButton;
+        private ListBox messageListBox;
     }
 }
