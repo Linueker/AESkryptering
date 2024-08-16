@@ -37,6 +37,8 @@
             label1 = new Label();
             passwordCheck = new TextBox();
             enterPasswordLable = new Label();
+            dataBaseData = new ListBox();
+            ListMessagesButton = new Button();
             SuspendLayout();
             // 
             // Text
@@ -46,17 +48,17 @@
             Text.Multiline = true;
             Text.Name = "Text";
             Text.PlaceholderText = "Text";
-            Text.Size = new Size(291, 57);
+            Text.Size = new Size(291, 118);
             Text.TabIndex = 0;
             Text.TextChanged += Text_TextChanged;
             // 
             // button1
             // 
             button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.Location = new Point(321, 125);
+            button1.Location = new Point(321, 191);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(87, 28);
+            button1.Size = new Size(87, 23);
             button1.TabIndex = 2;
             button1.Text = "Encrypt";
             button1.UseVisualStyleBackColor = true;
@@ -64,10 +66,10 @@
             // 
             // Decrypt
             // 
-            Decrypt.Location = new Point(332, 261);
+            Decrypt.Location = new Point(332, 266);
             Decrypt.Margin = new Padding(3, 2, 3, 2);
             Decrypt.Name = "Decrypt";
-            Decrypt.Size = new Size(84, 28);
+            Decrypt.Size = new Size(84, 23);
             Decrypt.TabIndex = 3;
             Decrypt.Text = "Decrypt";
             Decrypt.UseVisualStyleBackColor = true;
@@ -86,7 +88,7 @@
             // 
             // Password
             // 
-            Password.Location = new Point(24, 130);
+            Password.Location = new Point(24, 191);
             Password.Margin = new Padding(3, 2, 3, 2);
             Password.Name = "Password";
             Password.PlaceholderText = "Select password";
@@ -121,11 +123,33 @@
             enterPasswordLable.TabIndex = 7;
             enterPasswordLable.Text = "Enter Password:";
             // 
+            // dataBaseData
+            // 
+            dataBaseData.FormattingEnabled = true;
+            dataBaseData.ItemHeight = 15;
+            dataBaseData.Location = new Point(448, 98);
+            dataBaseData.Name = "dataBaseData";
+            dataBaseData.Size = new Size(240, 304);
+            dataBaseData.TabIndex = 8;
+            dataBaseData.SelectedIndexChanged += dataBaseData_SelectedIndexChanged;
+            // 
+            // ListMessagesButton
+            // 
+            ListMessagesButton.Location = new Point(448, 69);
+            ListMessagesButton.Name = "ListMessagesButton";
+            ListMessagesButton.Size = new Size(98, 26);
+            ListMessagesButton.TabIndex = 9;
+            ListMessagesButton.Text = "List messages";
+            ListMessagesButton.UseVisualStyleBackColor = true;
+            ListMessagesButton.Click += ListMessagesButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 436);
+            Controls.Add(ListMessagesButton);
+            Controls.Add(dataBaseData);
             Controls.Add(enterPasswordLable);
             Controls.Add(passwordCheck);
             Controls.Add(label1);
@@ -151,5 +175,7 @@
         private Label label1;
         private TextBox passwordCheck;
         private Label enterPasswordLable;
+        private ListBox dataBaseData;
+        private Button ListMessagesButton;
     }
 }

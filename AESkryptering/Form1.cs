@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace AESkryptering
 {
     public partial class Form1 : Form
@@ -7,6 +9,7 @@ namespace AESkryptering
             InitializeComponent();
         }
 
+        List<EncryptedMessage> messages = new List<EncryptedMessage>();
         string password = "";
         string encrypted = "";
         string decrypted = "";
@@ -21,7 +24,6 @@ namespace AESkryptering
                 dbContext.EncryptedMessages.Add(message);
                 dbContext.SaveChanges();
             }
-
             Password.Text = "";
         }
 
@@ -44,8 +46,34 @@ namespace AESkryptering
         {
             decrypted = Encrypt.DecryptString(textBox2.Text, passwordCheck.Text);
             textBox2.Text = decrypted;
-
+            passwordCheck.Clear();
         }
-        
+
+        private void dataBaseData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Hämta det valda objektet från ListBox och typomvandla till EncryptedMessage
+            var selectedMessage = (EncryptedMessage?)dataBaseData.SelectedItem;
+
+            // Visa 'message' i textBox2
+            if (selectedMessage != null)
+            {
+                textBox2.Text = selectedMessage.Message;
+            }
+        }
+
+        private void ListMessagesButton_Click(object sender, EventArgs e)
+        {
+            dataBaseData.Items.Clear();
+            // Öppnar upp koppling till databasen
+            using (MyDBContext dbContext = new MyDBContext())
+            {
+                messages = dbContext.EncryptedMessages.ToList();
+            }
+            foreach (var message in messages) 
+            {
+                dataBaseData.Items.Add(message);
+            }
+            dataBaseData.DisplayMember = "ID";
+        }
     }
 }
