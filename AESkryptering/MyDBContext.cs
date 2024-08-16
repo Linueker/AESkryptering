@@ -14,7 +14,5 @@ namespace AESkryptering
         {
             optionsBuilder.UseSqlServer("Data Source=LAPTOP-ONS01784;Initial Catalog=AESkryptering;Trust Server Certificate=True;Integrated Security = True");
         }
-
-        //"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AESkryptering"
     }
 }

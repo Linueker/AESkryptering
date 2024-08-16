@@ -15,6 +15,7 @@ namespace AESkryptering
         {
             encrypted = Encrypt.EncryptString(Text.Text.ToString(), Password.Text.ToString());
             Text.Text = encrypted;
+            //Öppna kopplingen till databasen
             using (MyDBContext dbContext = new MyDBContext())
             {
                 EncryptedMessage message = new EncryptedMessage();

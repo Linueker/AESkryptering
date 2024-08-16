@@ -10,28 +10,6 @@ namespace AESkryptering
 {
     public class Encrypt
     {
-        //static void Main(string[] args)
-        //{
-        //    // The plaintext string
-        //    string plaintext = "Hello, Baha'is of the World!";
-
-        //    // The password used to encrypt the string
-        //    string password = "my-secret-ian-password";
-
-        //    // Encrypt the string
-        //    string encrypted = EncryptString(plaintext, password);
-
-        //    // Decrypt the encrypted string
-        //    string decrypted = DecryptString(encrypted, password);
-
-        //    // Print the original and decrypted strings
-        //    Console.WriteLine("Original:  " + plaintext);
-        //    Console.WriteLine("Decrypted: " + decrypted);
-        //}
-
-        
-
-
         public static string EncryptString(string plaintext, string password)
         {
             // Convert the plaintext string to a byte array
